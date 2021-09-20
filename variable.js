@@ -7,7 +7,7 @@
 console.log('Hello World!');
 
 
-// 2. Variable (변수)
+// 2. Variable(변수), rw(read/write)
 // let (added in EX6)
 
 // 3. Block scope
@@ -16,7 +16,7 @@ console.log('Hello World!');
 // 4. Global scope
 // 어느 곳에서나 접근이 가능하다.
 // global한 변수들은 어플리케이션이 실행되는 순간부터 끝날 때까지 항상 메모리에 탑재되어 있기 때문에 최소한으로 쓰는 것이 좋다.
-// 가능하면 클래스나 함수 if나 for로 필요한 부분에서만 정의해서 쓰는 것이 좋다.
+// 가능하면 클래스나 함수 if나 for loop로 필요한 부분에서만 정의해서 쓰는 것이 좋다.
 
 let globalName = 'globalName'
 {
@@ -38,16 +38,23 @@ age =4; //이렇게 var로 선언하기도 전에 값을 할당해도 되기때�
 var age;
 
 
-// 6. Constants
+// 6. Constant, r(read only)
 // 선언함과 동시헤 할당한 뒤로는 값이 절대로 바뀌지 않는다.
+// use const whenever possible.
+// only use let if variable needs to change.
+const daysInWeek = 7;
+const maxNumber = 5;
+
+// Note!
+// Immutable data type: primitive types, frozon objects (i.e. object.freese())
+// Mutable data types: all objects by default are mutable in JS.
 // favor immutable data type always for a reasons:
 //   - security
 //   - thread safety
 //      : 다양한 쓰레드들이 동시에 접근해서 값을 변경을 할 수 있는데 동시에 값을 변경한다는 것은 위험하다. 그렇기 때문에 가능하면 값이 변하지 않는 것을 사용하는 것이 좋다.
 //   - reduce human mistakes
 // 값이 계속 변경될 수 있는 것을 Mutable 데이터 타입이라 한다. = let
-const daysInWeek = 7;
-const maxNumber = 5;
+
 
 
 // 7. Variable types
@@ -129,7 +136,7 @@ console.log(`value: ${symbol1.description}, type: ${typeof symbol1}`);
 /* [object] real-life object, data structure */
 // object는 우리가 일상생활에서 사용하는 물건과 물체들을 대표할 수 있는 박스형태를 말한다.
 const seazero = { name: 'seazero', age: 20}; //seazero라는 오브젝트를 만들어서 이름은 뭐고 나이는 얼마다 라고 정의한다. const로 지정되어있어서 한 번 선언된 옵젝트는 변경이 불가능하다.
-
+seazero.age = 21 ; //이렇게 변경이 가능하다
 
 
 // 8. Dynamic typing: dynamically typed language
