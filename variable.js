@@ -126,5 +126,30 @@ console.log(gSymbol1 ==gSymbol2); //true
 // symbol을 그냥 ${symbol1}으로 출력하게 되면 에러가 난다. ${symbol1.description}을 사용한다.
 console.log(`value: ${symbol1.description}, type: ${typeof symbol1}`);
 
+/* [object] real-life object, data structure */
+// object는 우리가 일상생활에서 사용하는 물건과 물체들을 대표할 수 있는 박스형태를 말한다.
+const seazero = { name: 'seazero', age: 20}; //seazero라는 오브젝트를 만들어서 이름은 뭐고 나이는 얼마다 라고 정의한다. const로 지정되어있어서 한 번 선언된 옵젝트는 변경이 불가능하다.
+
+
 
 // 8. Dynamic typing: dynamically typed language
+// c, java : statically typed language (변수를 선언할 때 어떤 타입인지 결정해서 타입을 같이 선언해준다.)
+// javaScript : dynamically typed language (선언할 때 어떤 타입인지 선언하지 않고, runtime(프로그램이 동작할 때)할당된 값에 따라서 타입이 변경될 수 있다.)
+// Dynamic typing언어는 내가 좋은아이디어가 있을 때 빠르게 프로토타입을 하고싶을 때는 정말 유용하게 쓸 수 있는 언어지만,
+// 다수의 엔지니어들과 일 할 때는 발등에 불똥이 떨어질 수 있다.
+let text = 'hello';
+console.log(text.charAt(0)); // h 가 출력된다
+console.log(`value: ${text}, type: ${typeof text}`); //여기서는 hello가 string 
+
+text =1;
+console.log(`value: ${text}, type: ${typeof text}`); //여기서는 hello가 number 
+
+text = '7'+ 5; //string + number : 문자열에 더하기가 있으니까 뒤에 number 5를 string으로 변환해서 75를 출력한다.
+console.log(`value: ${text}, type: ${typeof text}`); //여기서는 hello가 string
+
+text = '8'/'2'; //string과 string을 나누면 number를 나누는 나누기 연산자를 썼네? 그리고 string안에 들어있는 것은 실제로 숫자 값이잖아. 그럼 숫자와 숫자를 나누자!
+console.log(`value: ${text}, type: ${typeof text}`); //여기서는 hello가 number 
+console.log(text.charAt(0)); // 중간에 number로 타입이 변해서 에러가 난다. 
+//그래서 JS는 런타임에서 타입이 정해지기 때문에 이것 때문에 에러가 런타임으로 발생하는 경우가 굉장히 많다.
+// 이런 문제 때문에 typeScript가 나왔다. JS위에 type이 올려진 것 ~
+
