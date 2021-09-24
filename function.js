@@ -166,7 +166,7 @@ const simplePrint = function () {
 };
 */
 const simplePrint = () => console.log("simplePrint"); //function지우고 블럭 지우고 => 넣으면 끝!
-const add = (a, b) => a + b; // retrun값이 a+b인것이다
+const added = (a, b) => a + b; // retrun값이 a+b인것이다
 const simpleMultiply = (a, b) => {
   // 더 긴 함수를 이용해야하면 블럭을 만들어서 사용한다. 대신 블럭을 사용하면 retrun을 사용해서 값을 반환해줘야한다.
   //do something more
@@ -178,3 +178,39 @@ const simpleMultiply = (a, b) => {
   console.log("IIFE");
 })(); //이렇게 괄호들로 묶어주면 된다.
 //hello(); //함수를 선언하고 이렇게 따로 호출해줘야하지만 IIFE를 사용하면 선언함과 동시에 호출 할 수 있다.
+
+// Fun quiz time❤️
+// function calculate(command, a, b)
+// command: add, substract, divide, multiply, remainder
+
+const calculate = (command, a, b) => {
+  switch (command) {
+    case "add":
+      add(a, b);
+      break;
+    case "substract":
+      substract(a, b);
+      break;
+    case "divide":
+      divide(a, b);
+      break;
+    case "multiply":
+      multiply(a, b);
+      break;
+    case "remainder":
+      remainder(a, b);
+      break;
+  }
+};
+
+const add = (a, b) => console.log(a + b);
+const substract = (a, b) => console.log(a - b);
+const divide = (a, b) => console.log(a / b);
+const multiply = (a, b) => console.log(a * b);
+const remainder = (a, b) => console.log(a % b);
+
+calculate("add", 5, 3);
+calculate("substract", 5, 3);
+calculate("divide", 5, 3);
+calculate("multiply", 5, 3);
+calculate("remainder", 5, 3);
