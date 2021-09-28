@@ -85,3 +85,58 @@ const article2 = new Article(2);
 // static은 object마다 생성되는 것이 아니고 class자체에 붙어있다.
 console.log(Article.publisher); // static함수를 불러오려면 object.을 쓰면 안되고 class.을 써야된다.
 Article.printPublisher();
+
+// 5. Inheritance 상속과 다양성
+// a way for one class to extend another class.
+class Shape {
+  constructor(width, height, color) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
+  }
+
+  draw() {
+    console.log(`drawing ${this.color} color !`);
+  }
+
+  getArea() {
+    return this.width * this.height;
+  }
+}
+
+class Rectangle extends Shape {}
+class Triangle extends Shape {
+  draw() {
+    super.draw(); //부모의 메소드도 호출하고
+    //오버라이딩해서 삼각형 이모티콘으로 재정의해서 그려주기 ㅋㅋ
+    console.log("🔺");
+  }
+  getArea() {
+    //오버라이딩해서 삼각형 너비 공식으로 재정의 해준다
+    return (this.width * this.height) / 2;
+  }
+
+  toString() {
+    //공통 메소드 오버라이딩하기
+    return `Triangle: color: ${this.color}`;
+  }
+}
+
+const rectangle = new Rectangle(20, 20, "blue");
+rectangle.draw();
+console.log(rectangle.getArea());
+
+const triangle = new Triangle(20, 20, "red");
+triangle.draw();
+console.log(triangle.getArea());
+
+// 6. Class checking: instanceOf
+// 오브젝트는 클래스를 이용해서 만들어진 새로운 인스턴스이다.
+// instanceOf는 왼쪽에 있는 오브젝트가 오른쪽에 있는 클래스의 인스턴스 인지 아닌지 즉, 이 오브젝트가 이 클래스를 이용해서 만들어진 아이인지 확인하는 것
+// true, false를 return한다.
+console.log(rectangle instanceof Rectangle); //t
+console.log(triangle instanceof Rectangle); //f
+console.log(triangle instanceof Triangle); //t
+console.log(triangle instanceof Shape); //t
+console.log(triangle instanceof Object); //t / js에서 만든 모든 오브젝트 클래스들은 JS에있는 오브젝트를 상속받은 것이다.
+console.log(triangle.toString()); // 그렇기 때문에 어떤 오브젝트든지 공통적으로 존재하는 메소드를 쓸 수 있다.
