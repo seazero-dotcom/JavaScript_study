@@ -3,6 +3,7 @@
 // JavaScript is synchronous.
 // (동기적이다 = hoisting이 된 이후부터 코드가 우리가 작성한 순서에 맞춰서 하나하나씩 동기적으로 실행된다는 말).
 // Excute the code block in order after hoisting.
+
 // hoisting: var, function declaration이 자동적으로 제일 위로 선언들이 제일위로 올라가는 것
 
 // sync: 정해진 순서에 맞게 코드가 실행되는 것
