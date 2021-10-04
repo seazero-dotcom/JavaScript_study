@@ -19,6 +19,8 @@ console.log(user);
 */
 
 /*Pomise 이용하여 비동기적인 처리 구현한 것
+내가 언제 User의 데이터를 받아올지 모르겠지만 내가 약속할께 Promise라는 오브젝트를 가지고 있으면 여기에 니가 then이라는 콜벡함수만 등록해 놓으면 
+user의 데이터가 준비되는대로 니가 등록한 콜벡함수를 내가 불러줄게 !
 function fetchUser() {
   return new Promise((resolve, reject) => {
     // do network request in 10 secs...
@@ -36,12 +38,13 @@ async function fetchUser() {
   // do network request in 10 secs...
   return "seazero";
 }
-const user = fetchUser();
+const user = fetchUser(); // fetchUser가 자동으로 promise를 리턴한다.
 user.then(console.log);
 console.log(user);
 
-// 2. await✨
+// 2. await✨: async가 붙은 함수안에서만 쓸 수 있다.
 function delay(ms) {
+  //이 함수는 Promise를 리턴하는데 정해진 ms가 지나면 resolcve를 호출하는 Promise를 리턴하게된다.
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
